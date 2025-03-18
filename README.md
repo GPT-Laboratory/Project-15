@@ -1,88 +1,75 @@
-# YouTube to Blog Post Converter
+pip insta# Media Processor with AI Blog Generation
 
-This application converts YouTube videos into blog posts using AI-powered language processing.
+This application processes video and audio files to generate AI-powered blog posts using LangGraph and LangChain. It features a React frontend and a Python FastAPI backend.
 
-## Features
+## Prerequisites
 
-- Simple drag-and-drop or URL input for YouTube videos
-- Automatic transcription of video content
-- AI-generated blog posts from video content
-- Modern React frontend with Tailwind CSS
-- Python backend with LangChain and LangGraph
+- Python 3.8 or higher
+- Node.js 14 or higher
+- OpenAI API key
 
-## Project Structure
-
-```
-project/
-├── backend/             # Python Flask API
-│   ├── app.py           # Main Flask application
-│   ├── requirements.txt # Python dependencies
-│   ├── services/        # Core services
-│   │   ├── youtube.py   # YouTube video processing
-│   │   ├── transcription.py # Video transcription
-│   │   └── blog_generator.py # LangChain/Graph blog generation
-│   └── ...
-└── frontend/           # React application
-    ├── package.json    # Node dependencies
-    ├── public/         # Static files
-    ├── src/            # React source code
-    └── ...
-```
-
-## Setup Instructions
+## Setup
 
 ### Backend Setup
 
-1. Navigate to the backend directory:
-   ```
-   cd backend
-   ```
+1. Create a virtual environment and activate it:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-2. Create a virtual environment:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+2. Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-3. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+3. Set up your OpenAI API key:
+Create a `.env` file in the root directory and add:
+```
+OPENAI_API_KEY=your_api_key_here
+```
 
-4. Start the Flask server:
-   ```
-   python app.py
-   ```
+4. Start the backend server:
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+The backend will run on http://localhost:8000
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
-   ```
-   cd frontend
-   ```
+1. Install Node.js dependencies:
+```bash
+cd frontend
+npm install
+```
 
-2. Install dependencies:
-   ```
-   npm install
-   ```
+2. Start the frontend development server:
+```bash
+npm start
+```
 
-3. Start the development server:
-   ```
-   npm start
-   ```
+The frontend will run on http://localhost:3000
 
-4. Open your browser and navigate to http://localhost:3000
+## Usage
 
-## Technologies Used
+1. Open http://localhost:3000 in your browser
+2. Enter the path to your media files directory
+3. Enter the names of your video and audio files
+4. Click "Start Generation"
+5. Wait for the process to complete
+6. View the generated blog post
 
-- **Backend**:
-  - Python 3.9+
-  - Flask
-  - LangChain
-  - LangGraph
-  - yt-dlp (YouTube video processing)
-  
-- **Frontend**:
-  - React
-  - Tailwind CSS
-  - Axios (for API requests) 
+## Features
+
+- Video and audio file processing
+- Speech-to-text conversion
+- AI-powered text summarization
+- Blog post generation
+- Real-time process status updates
+- Modern Material-UI interface
+
+## Note
+
+Make sure your media files are accessible to the backend server. The application expects the media files to be in the specified directory path. 
