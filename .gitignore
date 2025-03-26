@@ -1,2 +1,6 @@
 /downloads
 /venv
+/avatars
+
+.env
+output.mp4
